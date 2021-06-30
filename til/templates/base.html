@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> {% block title %}Base{% endblock %}</title>
 </head>
 <body>
-    {% block title %}Base{% endblock %}
-    {% block body %}{% endblock %}
+    {% block body %}
+        Base file stuffs
+    {% endblock %}
 </body>
 </html>
