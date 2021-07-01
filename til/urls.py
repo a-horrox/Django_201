@@ -19,9 +19,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path
 from feed import urls as feed_url
+from profiles import urls as profiles_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(feed_url, namespace='feed')),
+    path('profile/', include(profiles_urls, namespace='profile')),
     url('', include('allauth.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

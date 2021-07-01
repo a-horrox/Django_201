@@ -31,7 +31,7 @@
             </li>
             {% if request.user.is_authenticated %}
                 <li>
-                    <a href="{% url 'feed:new_post' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                    <a href="{% url 'feed:new_post' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 js-toggle-modal">
                         <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
                             <i class='bx bx-plus-circle'></i>
                         </span>
@@ -87,28 +87,29 @@
                         </svg> {% endcomment %}
                     </div>
                     <hr>
-                    <div class="">
-                        {% comment %} 
-                        TODO Add AJAX form 
-                        {% endcomment %}
+                    <div class="w-full">
+                        <textarea class="border-2 rounded border-indigo-600 my-4 w-full px-2 py-1 js-post-text" rows="3" placeholder="What have you learnt today?" maxlength="240" data-post-url="{% url 'feed:new_post' %}"></textarea>
                     </div>
                     <hr>
                     <div class="ml-auto">
-                        <button class="bg-white text-gray-800 font-bold text-l rounded border-b-2 border-indigo-600 hover:bg-indigo-600 hover:text-white shadow-md py-2 px-3 inline-flex items-center js-submit" type="submit">
+                        <button class="bg-white text-gray-800 font-bold text-l rounded border-b-2 border-indigo-600 hover:bg-indigo-600 hover:text-white shadow-md py-2 px-3 inline-flex items-center js-submit" type='button'>
                             <i class='bx bx-plus-circle text-l'></i>
                             <span>&nbsp;</span>
                             <span class="mr-2">Create Post</span>
                         </button>
-                        <button class="bg-white text-gray-800 font-bold text-l rounded border-b-2 border-red-600 hover:bg-red-600 hover:text-white shadow-md py-2 px-3 inline-flex items-center" type="submit">
-                            <i class='bx bx-minus-circle' ></i>
+                        <button class="bg-white text-gray-800 font-bold text-l rounded border-b-2 border-red-600 hover:bg-red-600 hover:text-white shadow-md py-2 px-3 inline-flex items-center js-toggle-modal" type="button">
+                            <i class='bx bx-x-circle text-l' ></i>
                             <span>&nbsp;</span>
-                            <span class="mr-2">Close</span>
+                            <span class="mr-2">Cancel</span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     {% endif %}
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src='{% static "js/main.js" %}'></script>
 </body>
