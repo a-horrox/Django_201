@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Create new post{% endblock %}
+
+{% block body %}
+    <form action="." method="POST">
+        
+        {{ form.as_p }}
+        {% csrf_token %}
+
+        <div class="my-3">
+            <button class="bg-white text-gray-800 font-bold text-l rounded border-b-2 border-indigo-600 hover:bg-indigo-600 hover:text-white shadow-md py-2 px-3 inline-flex items-center" type="submit">
+                <i class='bx bx-plus-circle text-l'></i>
+                <span>&nbsp;</span>
+                <span class="mr-2">Create Post</span>
+            </button>
+
+            <a href="/">
+                <button class="bg-white text-gray-800 font-bold text-l rounded border-b-2 border-red-600 hover:bg-red-600 hover:text-white shadow-md py-2 px-3 inline-flex items-center" type="button">
+                    <i class='bx bx-minus-circle' ></i>
+                    <span>&nbsp;</span>
+                    <span class="mr-2">Cancel</span>
+                </button>
+            </a>
+        </div>
+
+    </form>
+{% endblock %}
