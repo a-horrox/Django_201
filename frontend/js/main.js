@@ -16,7 +16,7 @@ $.ajaxSetup({
                         break;
                     }
                 }
-            }
+            } 
 
             return cookieValue;
         }
@@ -38,7 +38,7 @@ $(document).on('click', '.js-toggle-modal', function(e) {
     const $btn = $(this)
 
     if(!text.length) {
-        return false
+        return false;
     }
 
     $btn.prop("disabled", true).text("Posting!")
@@ -52,14 +52,23 @@ $(document).on('click', '.js-toggle-modal', function(e) {
             $(".js-modal").addClass("hidden");
             $("#posts-container").prepend(dataHtml);
             $btn.prop("disabled", false).text("New Post");
-            $(".js-post-text").val('')
+            $(".js-post-text").val('');
         },
         error: (error) => {
-            console.warn(error)
+            console.warn(error);
             $btn.prop("disabled", false).text("Error");
         }
     });
 })
+.on("click", ".js-follow", function(e) {
+    e.preventDefault();
+    console.log("clicked");
+})
+
+
+
+
+
 
 
 
