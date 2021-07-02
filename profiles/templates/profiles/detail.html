@@ -21,19 +21,27 @@
             {% if request.user.is_authenticated %}
                 {% if request.user != user %}
                     <button 
-                    class="bg-white text-gray-800 font-bold text-sm rounded border-b-2 border-green-600 hover:bg-green-600 hover:text-white shadow-md py-1 px-4 mt-2 inline-flex items-center content-center js-follow" 
+                    class="bg-white text-gray-800 font-bold text-sm rounded border-b-2 border-green-600 hover:bg-green-600 hover:text-white shadow-md py-1 px-4 mt-2 js-follow" 
                     data-username="{{ user.username }}" 
-                    data-action="follow" 
+                    data-action="{% if you_follow %}un{% endif %}follow" 
                     data-url="{% url 'profiles:follow' user.username %}" 
                     type="button">
-                        <span class="js-follow-text">Follow</span>
+                        <span class="js-follow-text">
+                            {% if you_follow %}
+                                Following
+                            {% else %}
+                                Follow
+                            {% endif %}
+                        </span>
                     </button>
                 {% endif %}
 
             {% else %}
                 <a href="{% url 'account_login' %}">
-                    <button class="bg-white text-gray-800 font-bold text-sm rounded border-b-2 border-green-600 hover:bg-green-600 hover:text-white shadow-md py-1 px-4 mt-2 inline-flex items-center content-center js-follow" data-username="{{ user.username }}" type="button">
-                        <span class="js-follow-text">
+                    <button class="bg-white text-gray-800 font-bold text-sm rounded border-b-2 border-green-600 hover:bg-green-600 hover:text-white shadow-md py-1 px-4 mt-2 inline-flex items-center content-center" 
+                    data-username="{{ user.username }}" 
+                    type="button">
+                        <span class="">
                             Login to follow
                         </span>
                     </button>
